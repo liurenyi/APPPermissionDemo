@@ -21,7 +21,7 @@ import java.util.List;
 
 public class CheckPermissionActivity extends AppCompatActivity {
 
-    private static final String TAG = "CPA";
+    private static final String TAG = "liu-CPA";
     private static final int PERMISSION_REQUEST_CODE = 1;
     private List<String> permissionList = new ArrayList<>();
 
@@ -44,6 +44,12 @@ public class CheckPermissionActivity extends AppCompatActivity {
         }
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             permissionList.add(Manifest.permission.CAMERA);
+        }
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.ACCESS_COARSE_LOCATION);
+        }
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.ACCESS_FINE_LOCATION);
         }
         if (!permissionList.isEmpty()) {
             String[] permissions = permissionList.toArray(new String[permissionList.size()]);
